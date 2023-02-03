@@ -1,70 +1,105 @@
-// import React, {useEffect, useState} from "react";
-// import GoogleLogin from "react-google-login";
-// import { gapi } from "gapi-script";
-// import "./login.css"
+import React from "react";
+import { Link } from "react-router-dom";
+import { Container, Row, Col, Form, FormGroup, Input } from "reactstrap";
+import Helmet from "../components/Helmet/Helmet";
+import CommonSection from "../components/UI/CommonSection";
 
-// const LoginForm = () => {
+import "../styles/contact.css";
 
-//     useEffect(() => {
-//         function start() {
-//             gapi.client.init({
-//                 clientId: "79474543031-tmjo35916ufn421ej3u1i2ljao2apr4s.apps.googleusercontent.com",
-//                 scope: ""
-//             })
-//         }
-//         gapi.load('client: auth2', start)
-//     })
+const socialLinks = [
+  {
+    url: "#",
+    icon: "ri-facebook-line",
+  },
+  {
+    url: "#",
+    icon: "ri-instagram-line",
+  },
+  {
+    url: "#",
+    icon: "ri-linkedin-line",
+  },
+  {
+    url: "#",
+    icon: "ri-twitter-line",
+  },
+];
 
-//     const [popupStyle, showPopup] = useState("hide")
+const VehicleSharing = () => {
+  return (
+    <Helmet title="Login or Sign In">
+      <CommonSection title="Login or Sign In" />
+      <section>
+        <Container>
+          <Row>
+            <Col lg="7" md="7">
+              <h6 className="fw-bold mb-4">Login with your details</h6>
 
-//     const popup = () => {
-//         showPopup("login-popup")
-//         setTimeout(() => showPopup("hide"), 3000)
-//     }
+              <Form>
+                <FormGroup className="contact__form">
+                  <Input placeholder="User Name" type="text" />
+                </FormGroup>
+                
+                <FormGroup className="contact__form">
+                  <Input placeholder="Enter Password" type="number" />
+                </FormGroup>
 
-//     const onSuccess = e => {
-//         alert("User signed in")
-//         console.log(e)
-//     }
+              
+                {/* <FormGroup className="contact__form">
+                  <textarea
+                    rows="5"
+                    placeholder="Message"
+                    className="textarea"
+                  ></textarea>
+                </FormGroup> */}
+                
+                
 
-//     const onFailure = e => {
-//         alert("User sign in Failed")
-//         console.log(e)
-//     }
+                <button className=" contact__btn" type="submit">
+                  Sign In
+                </button>
+                <p className="forgot-password text-right">
+                Not registered yet <Link to="/Register">Sign Up?</Link>
+                </p>
+              </Form>
+            </Col>
 
-//     return (
-//         <div className="cover">
-//             <h1>Login</h1>
-//             <input type="text" placeholder="username" className="inp"/>
-//             <input type="password" placeholder="password" className="inp"/>
+            <Col lg="5" md="5">
+              <div className="contact__info">
+                <h6 className="fw-bold">Contact Information</h6>
+                <p className="section__description mb-0">
+                139, CHARUSAT Campus, Highway, Off, Nadiad - Petlad Rd, Changa, Gujarat 388421
+                </p>
+                <div className=" d-flex align-items-center gap-2">
+                  <h6 className="fs-6 mb-0">Phone:</h6>
+                  <p className="section__description mb-0">+918890596286</p>
+                </div>
 
-//             <div className="login-btn" onClick={popup}>Login</div>
+                <div className=" d-flex align-items-center gap-2">
+                  <h6 className="mb-0 fs-6">Email:</h6>
+                  <p className="section__description mb-0">htr5602@gmail.com</p>
+                </div>
 
-//             <p className="text">Or login using</p>
+                <h6 className="fw-bold mt-4">Follow Us</h6>
 
-//             <div className="alt-login">
-//                 <div className="facebook"></div>
-//                 <div className="google">
-//                     <GoogleLogin className="blue"
-//                         clientId="79474543031-tmjo35916ufn421ej3u1i2ljao2apr4s.apps.googleusercontent.com"
-//                         buttonText=""
-//                         onSuccess={onSuccess}
-//                         onFailure={onFailure}
-//                         cookiePolicy={'single_host_origin'}
-//                         isSignedIn={false} // alternative is true, which keeps the user signed in
-//                         icon={false}    // alt is true, and this puts the google logo on your button, but I don't like it
-//                         theme="dark"  // alternative is light, which is white
-//                     />
-//                 </div>
-//             </div>
+                <div className=" d-flex align-items-center gap-4 mt-3">
+                  {socialLinks.map((item, index) => (
+                    <Link
+                      to={item.url}
+                      key={index}
+                      className="social__link-icon"
+                    >
+                      <i class={item.icon}></i>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+    </Helmet>
+  );
+};
 
-//             <div className={popupStyle}>
-//                 <h3>Login Failed</h3>
-//                 <p>Username or password incorrect</p>
-//             </div>
-            
-//         </div>
-//     )
-// }
-
-// export default LoginForm
+export default VehicleSharing;

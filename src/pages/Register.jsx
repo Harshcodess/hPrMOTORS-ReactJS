@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { Container, Row, Col, Form, FormGroup, Input } from "reactstrap";
 import Helmet from "../components/Helmet/Helmet";
 import CommonSection from "../components/UI/CommonSection";
+import { authenticateSignup } from "../service/api";
+
 
 import "../styles/contact.css";
 
@@ -25,31 +27,56 @@ const socialLinks = [
   },
 ];
 
+
+const signupIntialValues = { 
+  firstname: '',
+  lastname: '',
+  username: '',
+  email: '',
+  phone: '',
+  password: ''
+}
+
 const VehicleSharing = () => {
+  const [signup, setSignup] = useState(signupIntialValues);
+
+  const onInputChange = (e) => { 
+     setSignup({ ...signup, [e.target.name]: e.target.value }); 
+  }
+
+  const signupUser = async () => { 
+    await authenticateSignup(signup);
+  }
+  
+  
+
   return (
-    <Helmet title="Vehicle Sharing">
-      <CommonSection title="Vehicle Sharing" />
+    <Helmet title="Register or Sign Up">
+      <CommonSection title="Register or Sign Up" />
       <section>
         <Container>
           <Row>
             <Col lg="7" md="7">
-              <h6 className="fw-bold mb-4">Share your vehicle details</h6>
+              <h6 className="fw-bold mb-4">Create your account. It's free and only takes a  minute.</h6>
 
               <Form>
                 <FormGroup className="contact__form">
-                  <Input placeholder="Owner Name" type="text" />
+                  <Input placeholder="First Name" type="text" onChange={(e) => onInputChange(e)} name='firstname'/>
                 </FormGroup>
                 <FormGroup className="contact__form">
-                  <Input placeholder="Email" type="email" />
+                  <Input placeholder="Last Name" type="text" onChange={(e) => onInputChange(e)} name='lastname'/>
                 </FormGroup>
                 <FormGroup className="contact__form">
-                  <Input placeholder="Mobile Number" type="tel" />
+                  <Input placeholder="User Name" type="text" onChange={(e) => onInputChange(e)} name='username'/>
                 </FormGroup>
                 <FormGroup className="contact__form">
-                  <Input placeholder="Registration Number" type="number" />
+                  <Input placeholder="Email" type="email" onChange={(e) => onInputChange(e)} name='email'/>
                 </FormGroup>
                 <FormGroup className="contact__form">
-                  <Input placeholder="Maker/Model of Vehicle" type="text" />
+                  <Input placeholder="Mobile Number" type="tel" onChange={(e) => onInputChange(e)} name='phone'/>
+                </FormGroup>
+                <FormGroup className="contact__form">
+                  <Input placeholder="Password" type="password" onChange={(e) => onInputChange(e)} name='password'/>
                 </FormGroup>
               
                 {/* <FormGroup className="contact__form">
@@ -59,23 +86,15 @@ const VehicleSharing = () => {
                     className="textarea"
                   ></textarea>
                 </FormGroup> */}
-                <FormGroup className="select__group">
-                 <select>
-                 <option value="ac">Vehicle Class</option>
-                  <option value="ac">Gear-2-Wheeler</option>
-                  <option value="non-ac">Non-Gear-2-Wheeler</option>
-                  <option value="non-ac">Automatic-4-Wheeler</option>
-                  <option value="non-ac">Manual-2-Wheeler</option>
-                  <option value="non-ac">Gear-Cycle</option>
-                  <option value="non-ac">Non-Gear-Cycle</option>
-                 </select>
-                </FormGroup>
                 
                 
 
-                <button className=" contact__btn" type="submit">
-                  Send Details
+                <button className=" contact__btn" type = "submit" onClick={() => signupUser()}>
+                  Sign Up
                 </button>
+                <p className="forgot-password text-right">
+                Already registered <Link to="/Login">Sign In?</Link>
+                </p>
               </Form>
             </Col>
 

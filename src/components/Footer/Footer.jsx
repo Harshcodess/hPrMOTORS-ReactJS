@@ -30,7 +30,7 @@ const quickLinks = [
     display: "Contact",
   },
   {
-    path: "/contact",
+    path: "/vehiclesharing",
     display: "Vehicle Sharing",
   },
 ];
@@ -90,7 +90,7 @@ const Footer = () => {
               <h5 className="footer__link-title">Newsletter</h5>
               <p className="section__description">Subscribe our newsletter</p>
               <div className="newsletter">
-                <input type="email" placeholder="Email" />
+                <input type="email" placeholder="Email" required/>
                 <span>
                   <i class="ri-send-plane-line"></i>
                 </span>

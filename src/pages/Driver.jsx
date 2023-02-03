@@ -41,17 +41,17 @@ const VehicleSharing = () => {
       e.target.reset();
   };
   return (
-    <Helmet title="Vehicle Sharing">
-      <CommonSection title="Vehicle Sharing" />
+    <Helmet title="Become a Driver">
+      <CommonSection title="Become a Driver" />
       <section>
         <Container>
           <Row>
             <Col lg="7" md="7">
-              <h6 className="fw-bold mb-4">Share your vehicle details</h6>
+              <h6 className="fw-bold mb-4">Share your details</h6>
 
               <Form ref={form} onSubmit={sendEmail}>
                 <FormGroup className="contact__form">
-                  <Input placeholder="Owner Name" type="text" name="owner_name"/>
+                  <Input placeholder="Name" type="text" name="owner_name"/>
                 </FormGroup>
                 <FormGroup className="contact__form">
                   <Input placeholder="Email" type="email" name="email"/>
@@ -59,19 +59,19 @@ const VehicleSharing = () => {
                 <FormGroup className="contact__form">
                   <Input placeholder="Mobile Number" type="tel" name="mobile_number"/>
                 </FormGroup>
-                <FormGroup className="contact__form">
+                {/* <FormGroup className="contact__form">
                   <Input placeholder="Registration Number" type="number" name="registration_number"/>
-                </FormGroup>
-                <FormGroup className="contact__form">
+                </FormGroup> */}
+                {/* <FormGroup className="contact__form">
                   <Input placeholder="Maker/Model of Vehicle" type="text" name="model_name"/>
                 </FormGroup>
                 <FormGroup className="contact__form">
                   <Input placeholder="Vehicle Type, Eg: Car/Bike/Cycle" type="text" name="vehicle"/>
-                </FormGroup>   
+                </FormGroup>    */}
                 <FormGroup className="contact__form">
                   <textarea
                     rows="5"
-                    placeholder="Details of the Vehicle, Eg: Name, Color, Model, Buying Year, Company, Gear/Non-Gear etc."
+                    placeholder="Mention details of the Vehicle and experience in driving if any."
                     className="textarea"
                     name="message"
                   ></textarea>

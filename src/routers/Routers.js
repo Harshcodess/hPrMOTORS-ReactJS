@@ -13,6 +13,7 @@ import CycleListing from "../pages/CycleListing"
 import Login from "../pages/Login"
 import Register from "../pages/Register"
 import VehicleSharing from "../pages/VehicleSharing"
+import Driver from "../pages/Driver"
 
 
 const Routers = () => {
@@ -21,7 +22,8 @@ const Routers = () => {
       <Route path="/" element={<Navigate to="/home" />} />
       <Route path="/home" element={<Home />} />
       <Route path="/vehiclesharing" element={<VehicleSharing />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/driver" element={<Driver />} />
+      <Route path="/Login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/about" element={<About />} />
       <Route path="/cars" element={<CarListing />} />

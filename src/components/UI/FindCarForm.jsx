@@ -2,6 +2,7 @@ import React from "react";
 import "../../styles/find-car-form.css";
 import "../../styles/find-car-form.css";
 import { Form, FormGroup } from "reactstrap";
+import { Link } from "react-router-dom";
 
 const FindCarForm = () => {
   return (
@@ -29,13 +30,18 @@ const FindCarForm = () => {
         </FormGroup>
         <FormGroup className="select__group">
           <select>
-            <option value="ac">AC Car</option>
-            <option value="non-ac">Non AC Car</option>
+            <option value="ac">Cars</option>
+            {/* <option value="non-ac">Cycles</option>
+            <option value="non-ac">Bikes</option> */}
           </select>
         </FormGroup>
 
         <FormGroup className="form__group">
-          <button className="btn find__car-btn">Find Car</button>
+        <Link to="/Cars" className="align-items-center gap-1">
+                  {/* <i class="ri-login-circle-line"></i>  */}
+                  <button className="btn find__car-btn">Find Vehicle</button>
+                </Link>
+          
         </FormGroup>
       </div>
     </Form>

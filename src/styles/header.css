@@ -165,7 +165,7 @@
   .header__top,
   .header__middle,
   .nav__right {
-    display: none;
+    display: list-item;
   }
 
   .mobile__menu {
